@@ -14,8 +14,8 @@ private:
 	LoginControl control;
 
 public:
-	LoginUI(std::ifstream& in_fp, std::ofstream& out_fp)
-		: in(in_fp), out(out_fp) {}
+	LoginUI(std::ifstream& in_fp, std::ofstream& out_fp, std::vector<Member*>* members)
+		: in(in_fp), out(out_fp), control(members) {}
 	void start();
 };
 

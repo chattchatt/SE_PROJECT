@@ -1,12 +1,18 @@
+#ifndef LOGIN_CONTROL_H
+#define LOGIN_CONTROL_H
+
 #include <string>
 #include <vector>
 #include "Member.h"
 
 class LoginControl {
 private:
-    std::vector<Member*>* memberList;  // ¿ÜºÎ¿¡¼­ ÁÖÀÔ¹ŞÀº Æ÷ÀÎÅÍ
+    std::vector<Member*>* memberList;  // ë©¤ë²„ í¬ì¸í„° ë²¡í„°
 
 public:
-    LoginControl(std::vector<Member*>* members);  // »ı¼ºÀÚ
+    LoginControl() : memberList(nullptr) {}
+    LoginControl(std::vector<Member*>* members) : memberList(members) {}
     std::string checkMember(const std::string& id, const std::string& pw);
 };
+
+#endif // LOGIN_CONTROL_H

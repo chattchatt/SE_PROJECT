@@ -1,11 +1,19 @@
-#include <string>
+#ifndef RENT_BICYCLE_CONTROL_H
+#define RENT_BICYCLE_CONTROL_H
 
-// TODO : rentBicycle() ÇÔ¼ö¿¡¼­ bikeId¿Í Model¸íÀ» Ãâ·ÂÇØ¾ßÇÔ. model ÀÎÀÚ Ãß°¡ ÇÊ¿ä
+#include <string>
+#include <vector>
+#include "Bicycle.h"
+
+// TODO : rentBicycle() í•¨ìˆ˜ëŠ” bikeIdì™€ Modelì„ ë°›ì•„ ëŒ€ì—¬ ê°€ëŠ¥ ì—¬ë¶€ë¥¼ í™•ì¸í•´ì•¼ í•©ë‹ˆë‹¤. modelì„ ì¶”ê°€ë¡œ ë°›ì•„ì•¼ í•©ë‹ˆë‹¤.
 class RentBicycleControl {
 private:
-    std::string currentUserId;
+    std::vector<Bicycle>* bicycleList;
 
 public:
-    RentBicycleControl(const std::string& userId);
-    std::string rentBicycle(const std::string& bikeId, const std::string& model);
+    RentBicycleControl() : bicycleList(nullptr) {}
+    RentBicycleControl(std::vector<Bicycle>* bicycles) : bicycleList(bicycles) {}
+    bool rentBicycle(const std::string& userId, const std::string& bicycleId);
 };
+
+#endif // RENT_BICYCLE_CONTROL_H
